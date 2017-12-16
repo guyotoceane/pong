@@ -1,6 +1,6 @@
 package upmc.game;
 
-public class Carte {
+public abstract class Carte {
 
     public String type;
     public String valeur;

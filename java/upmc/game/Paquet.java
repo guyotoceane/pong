@@ -8,6 +8,10 @@ public class Paquet {
     private String color[] = {"jaune", "bleu", "rouge", "vert"};
     private String joker_card[] = {"changement","plus4"};
     private ArrayList<Carte> paquet =new ArrayList();
+    public static ArrayList<Carte> talon = new ArrayList();
+    public static ArrayList<Carte> jeu_joueur1 = new ArrayList();
+    public static ArrayList<Carte> jeu_joueur2 = new ArrayList();
+
 
     public static ArrayList<Carte> paquet_melange =new ArrayList();
 
@@ -42,8 +46,19 @@ public class Paquet {
         }
     }
 
+    private void distribution_carte(){
+        for(int l=0; l<7; l++){
+            jeu_joueur1.add(paquet_melange.get(0));
+            paquet_melange.remove(paquet_melange.get(0));
+
+            jeu_joueur2.add(paquet_melange.get(0));
+            paquet_melange.remove(paquet_melange.get(0));
+        }
+    }
+
     public void init(){
         create();
         melange();
+        distribution_carte();
     }
 }
