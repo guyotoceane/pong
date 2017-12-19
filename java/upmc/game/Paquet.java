@@ -29,18 +29,19 @@ public class Paquet {
             }
         }
 
-        for(int k=0; k<4 ; k++){
-            Carte changement = new ColorCard("joker", joker_card[0]);
-            paquet.add(changement);
-
-            Carte plus4 = new ColorCard("joker", joker_card[1]);
-            paquet.add(plus4);
-        }
+//        for(int k=0; k<4 ; k++){
+//            Carte changement = new JokerCard("joker", joker_card[0]);
+//            paquet.add(changement);
+//
+//            Carte plus4 = new JokerCard("joker", joker_card[1]);
+//            paquet.add(plus4);
+//        }
     }
 
     private void melange() {
-        for (int k = 0; k < 108; k++) {
-            int random = (int) (Math.random() * (108 - k));
+
+        for (int k = 0; k < 100; k++) {
+            int random = (int) (Math.random() * (100 - k));
             paquet_melange.add(paquet.get(random));
             this.paquet.remove(paquet.get(random));
         }
@@ -51,8 +52,8 @@ public class Paquet {
             jeu_joueur1.add(paquet_melange.get(0));
             paquet_melange.remove(paquet_melange.get(0));
 
-            jeu_joueur2.add(paquet_melange.get(0));
-            paquet_melange.remove(paquet_melange.get(0));
+//            jeu_joueur2.add(paquet_melange.get(0));
+//            paquet_melange.remove(paquet_melange.get(0));
         }
     }
 

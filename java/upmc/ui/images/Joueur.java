@@ -72,15 +72,28 @@ public class Joueur {
             public void mouseClicked(MouseEvent e) {
 
 
-                jeu_visuel.remove(image_carte);
-                Paquet.talon.add(carte);
-                jeu.remove(carte);
 
-                jeu_visuel.repaint();
-                Talon talon = new Talon();
-                talon.ajouter_carte(carte);
 
-                System.out.println(Paquet.talon);
+                Verification verification = new Verification(carte);
+                int verif = verification.verifier_type();
+
+                if(verif==0){
+                    jeu_visuel.remove(image_carte);
+                    Paquet.talon.add(carte);
+                    jeu.remove(carte);
+
+                    jeu_visuel.repaint();
+                }
+
+
+                if(Paquet.jeu_joueur1.size() == 0){
+                    System.out.println("gagné");
+                    Container cp = GameUi.window.getContentPane();
+                    cp.removeAll();
+                    cp.add(new JLabel("Vous avez gagné"), BorderLayout.NORTH);
+                    cp.repaint();
+                }
+
 
             }
 

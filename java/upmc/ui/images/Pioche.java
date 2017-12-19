@@ -1,6 +1,7 @@
 package upmc.ui.images;
 
 import upmc.game.Carte;
+import upmc.game.Game;
 import upmc.game.Paquet;
 
 import javax.swing.*;
@@ -36,6 +37,15 @@ public class Pioche {
                     pioche.remove(image_carte);
                     pioche.repaint();
                     GameUi.joueur1.ajouter_carte(carte);
+
+                    if(Paquet.paquet_melange.size() == 0){
+                        System.out.println("perdu");
+                        Container cp = GameUi.window.getContentPane();
+                        cp.removeAll();
+                        cp.add(new JLabel("Vous avez perdu"), BorderLayout.NORTH);
+                        cp.repaint();
+                    }
+
                 }
 
                 @Override
